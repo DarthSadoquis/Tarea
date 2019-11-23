@@ -1,0 +1,24 @@
+﻿@model MVC_Homework.Models.ThreeNumbers
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div style="width:40%;height:90%;border: 1px solid #dadce0;border-radius: 8px;margin: 1% auto;border-color:black; background-color: #009CDF">
+        <div>
+            @Html.EditorFor(model => model.FirstNumber, new {htmlAttributes = new {@class = "form-control", @style = "margin: 0px auto;"}})
+        </div>
+        <div align="center">
+            <div>
+                @Html.EditorFor(model => model.SecondNumber, new {htmlAttributes = new {@class = "form-control", @style = "margin: 0px auto;"}})
+            </div>
+        </div>
+        
+        <button type="submit" class="btn btn-success center-block" style="width: 63%;margin-bottom:20px">Guardar Cambios</button>
+        <br/><br/><br/>
+        <h2>Número actual: @ViewBag.Random</h2>
+        <h2>Número anterior: @ViewBag.Last</h2>
+        <br/><br/><br/>
+        <h2>@ViewBag.Text</h2>
+    </div>
+}
