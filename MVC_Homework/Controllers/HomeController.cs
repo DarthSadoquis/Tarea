@@ -12,6 +12,7 @@
         private int pass = 0;
         public ActionResult Index()
         {
+            
             return View();
         }
         [HttpPost]
