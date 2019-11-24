@@ -8,8 +8,8 @@
     using Models;
     public class HomeController : Controller
     {
-        private int actual = 0;
-        private int pass = 0;
+        private static int actual = 0;
+        private static int pass = 0;
         public ActionResult Index()
         {
             
@@ -18,14 +18,13 @@
         [HttpPost]
         public ActionResult Index(ThreeNumbers model)
         {
-            string text;
             pass = actual;
             actual = model.RandomNumber;
             
-            text = actual > pass ? "mayor" : "menor";
+            var text = actual > pass ? "mayor" : "menor";
             ViewBag.Text = "El número actual es " + text;
             ViewBag.Last = pass;
-            ViewBag.Random = model.RandomNumber;
+            ViewBag.Random = actual;
             return View(model);
         }
 
